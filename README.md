@@ -33,6 +33,12 @@ To use this Gini impurity calculator, follow these steps:
 3. Create an instance of `ComputeGini` with your dataset.
 4. Call the `best_gini()` method to find the best split.
 
+## Requirements
+This project is implemented using Python 3.8+. Required libraries include:
+
+numpy
+You can install the required packages via:
+pip install numpy
 
 
 
