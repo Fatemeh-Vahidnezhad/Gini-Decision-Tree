@@ -11,7 +11,7 @@ class DicisionTree:
 
 
 def common_label(dataset):
-    if dataset:
+    if dataset.size != 0:
         return max(set(row[-1] for row in dataset), key=lambda x:[row[-1] for row in dataset].count(x))
 
 
@@ -24,10 +24,10 @@ def make_tree(dataset, depth=0, min_size=1):
     left, right = groups
 
     if best_threshold == None:
-        return DicisionTree(label=common_label(dataset))
+        return DicisionTree(best_threshold=None, left=None, right=None, best_colindex=None, label=common_label(dataset))
 
-    if left == None or right == None:
-        return DicisionTree(label=common_label(dataset))
+    if left.size == 0 or right.size == 0:
+        return DicisionTree(best_threshold=None, left=None, right=None, best_colindex=None, label=common_label(dataset))
     
     left_child = make_tree(left, depth+1)
 

@@ -1,38 +1,30 @@
+import numpy as np 
+
 class ComputeGini:
     def __init__(self, data):
         self.dic = {}
-        self.data = data
-        self.len_data = len(self.data)
-        self.count_features = len(self.data[0])
+        self.data = np.array(data)
+        self.len_data, self.count_features = self.data.shape
 
          
     def gini_entropy(self, group):
         # gini = 1-sum(pi**2) , pi = count(label i)/ len(group)
-        if not group:
+        if group.size == 0:
             return 0
         impurity = 1
-        len_group = len(group)
-        label_count = {row[-1] for row in group}
-        dic = {i: 0 for i in label_count}
-        for key in dic.keys():
-            dic[key] = [row[-1] for row in group].count(key)
-        for val in dic.values():
-            impurity -= (val/len_group)**2
+        label, counts = np.unique(group[:, -1], return_counts=True)
+        probabilities = counts/counts.sum()
+        impurity -= np.sum(probabilities**2)
         return impurity
 
     def grouping(self, value, index_col):
-        left = []
-        right = []
-        for row in self.data:
-            if row[index_col] <= value:
-                left.append(row)
-            else:
-                right.append(row)
+        left = self.data[self.data[:, index_col] <= value]
+        right = self.data[self.data[:, index_col] > value]
         return left, right
 
     def best_gini(self):
         best_gini = float('inf')
-        best_group = []
+        best_group = (np.array([]), np.array([]))
         best_value = None
         best_index = -1
         for index_col in range(self.count_features-1):
