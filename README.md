@@ -35,6 +35,7 @@ python iris.py
 This project is implemented using Python 3.8+. Required libraries include:
 
 numpy
+
 You can install the required packages via:
 pip install numpy
 
