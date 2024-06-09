@@ -27,7 +27,7 @@ Features:
 Clone this repository to your local machine
 
 ## Usage
-To use this code, follow these steps:
+To start using the framework, you can run the sample dataset:
 python iris.py
 
 ## Requirements
