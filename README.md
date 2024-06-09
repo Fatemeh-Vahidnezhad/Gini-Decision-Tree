@@ -27,11 +27,8 @@ Features:
 Clone this repository to your local machine
 
 ## Usage
-To use this Gini impurity calculator, follow these steps:
-1. Prepare your dataset in a list of lists format, where each inner list represents a data record, and the last element of each list is the class label.
-2. Import the `ComputeGini` class from the module.
-3. Create an instance of `ComputeGini` with your dataset.
-4. Call the `best_gini()` method to find the best split.
+To use this code, follow these steps:
+python iris.py
 
 ## Requirements
 This project is implemented using Python 3.8+. Required libraries include:
