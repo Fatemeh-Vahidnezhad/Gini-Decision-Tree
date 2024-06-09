@@ -1,4 +1,5 @@
-# Gini Impurity Calculator
+Decision Tree and Gini Calculator
+This repository contains two primary components: a Gini Impurity Calculator and a Decision Tree Classifier. These tools are designed to aid in understanding and implementing machine learning classification algorithms, particularly those involving decision trees.
 
 ## Overview
 This repository contains a Python implementation of the Gini impurity calculator, which is used to evaluate
